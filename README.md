@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div align="center">
 
 <img src="svg/en/hero.svg" alt="Rahgozar — the night route" width="100%"/>
@@ -275,3 +276,6 @@ bash start.sh        # نصب‌کنندهٔ تعاملی همراه سرویس 
 <img src="svg/fa/footer.svg" alt="ساختهٔ علیرضا و نیما" width="100%"/>
 
 ---
+=======
+# rahgozar
+>>>>>>> f484716622cdfdc804fea074160377273df9188d
