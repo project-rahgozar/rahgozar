@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" version="1.1" viewBox="0 0 512 512">
+  <title>Rahgozar</title>
+  <desc>رهگذر — مسیری نورانی و پرپیچ‌وخم با سه ایستگاه، از فیروزه‌ای تا طلایی</desc>
+  <defs>
+    <linearGradient id="route" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#2de6c8"/>
+      <stop offset=".55" stop-color="#5fd7bd"/>
+      <stop offset="1" stop-color="#f2b544"/>
+    </linearGradient>
+    <linearGradient id="flowg" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#eafff9"/>
+      <stop offset="1" stop-color="#ffe9c2"/>
+    </linearGradient>
+    <radialGradient id="glt" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#2de6c8" stop-opacity=".55"/><stop offset="1" stop-color="#2de6c8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glg" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#f2b544" stop-opacity=".6"/><stop offset="1" stop-color="#f2b544" stop-opacity="0"/>
+    </radialGradient>
+    <style>
+      .breathe{animation:br 4.5s ease-in-out infinite;transform-origin:50% 50%;transform-box:fill-box}
+      @keyframes br{0%,100%{opacity:.94;filter:drop-shadow(0 0 0 rgba(45,230,200,0))}50%{opacity:1;filter:drop-shadow(0 0 12px rgba(45,230,200,.3))}}
+      .lane{stroke-dasharray:3 21;animation:fl 1.8s linear infinite}
+      @keyframes fl{to{stroke-dashoffset:-48}}
+      .st{animation:tw 3.2s ease-in-out infinite}
+      .st:nth-of-type(2){animation-delay:1.1s}.st:nth-of-type(3){animation-delay:2s}
+      @keyframes tw{0%,100%{opacity:.15}50%{opacity:.95}}
+      .spark{transform-origin:446px 120px;animation:sp 5s ease-in-out infinite}
+      @keyframes sp{0%,100%{transform:scale(.75) rotate(0deg);opacity:.7}50%{transform:scale(1.12) rotate(45deg);opacity:1}}
+    </style>
+  </defs>
+  <g class="breathe">
+    <path d="M52,120 a34,34 0 1,0 30,-50 a26,26 0 1,1 -30,50 Z" fill="#f2c14e" opacity=".9"/>
+    <circle cx="104" cy="392" r="46" fill="url(#glt)"/>
+    <circle cx="268" cy="248" r="36" fill="url(#glt)" opacity=".5"/>
+    <circle cx="408" cy="146" r="50" fill="url(#glg)"/>
+    <path class="lane" d="M104,392 C168,392 176,330 224,298 C272,266 262,206 314,178 C346,161 378,151 408,146"
+          fill="none" stroke="url(#flowg)" stroke-width="7" stroke-linecap="round"/>
+    <path d="M104,392 C168,392 176,330 224,298 C272,266 262,206 314,178 C346,161 378,151 408,146"
+          fill="none" stroke="url(#route)" stroke-width="24" stroke-linecap="round"/>
+    <circle cx="104" cy="392" r="17" fill="#2de6c8"/><circle cx="104" cy="392" r="7" fill="#eafff9"/>
+    <circle cx="268" cy="248" r="13" fill="#5fd7bd"/><circle cx="268" cy="248" r="5.5" fill="#f0fffb"/>
+    <circle cx="408" cy="146" r="17" fill="#f2b544"/><circle cx="408" cy="146" r="7" fill="#fff7e2"/>
+    <g class="spark">
+      <path d="M446,92 L452.5,113.5 L474,120 L452.5,126.5 L446,148 L439.5,126.5 L418,120 L439.5,113.5 Z" fill="#ffd98a"/>
+    </g>
+    <circle class="st" cx="88" cy="84" r="3" fill="#bff5e8"/>
+    <circle class="st" cx="150" cy="56" r="2.2" fill="#ffe9c2"/>
+    <circle class="st" cx="352" cy="330" r="2.6" fill="#bff5e8"/>
+  </g>
+</svg>

@@ -1,0 +1,43 @@
+name: Mirror Sync
+
+# هر push (حتی آپلود وب) و هر تگ را به ریپوی آینهٔ اکانت دوم می‌فرستد.
+# راه‌اندازی: MIRROR.md — دو سکرت MIRROR_TOKEN و MIRROR_REPO لازم است.
+
+on:
+  push:
+    branches: ["**"]
+    tags: ["**"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout full history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Push everything to the mirror repository
+        env:
+          MIRROR_TOKEN: ${{ secrets.MIRROR_TOKEN }}
+          MIRROR_REPO: ${{ secrets.MIRROR_REPO }}
+        run: |
+          if [ -z "$MIRROR_TOKEN" ]; then
+            echo "::error::Secret MIRROR_TOKEN is not set — see MIRROR.md (step 2)."
+            exit 1
+          fi
+          if [ -z "$MIRROR_REPO" ]; then
+            echo "::error::Secret MIRROR_REPO is not set — see MIRROR.md (step 3)."
+            exit 1
+          fi
+          git config user.name  "rahgozar-mirror"
+          git config user.email "rahgozar-mirror@users.noreply.github.com"
+          git remote add mirror "https://x-access-token:${MIRROR_TOKEN}@github.com/${MIRROR_REPO}.git"
+          echo "Mirroring to ${MIRROR_REPO} ..."
+          git push mirror --all --force
+          git push mirror --tags --force
+          echo "Mirror updated ✓"
